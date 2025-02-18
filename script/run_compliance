@@ -1,0 +1,99 @@
+#!/usr/bin/perl
+
+use File::Basename;
+use File::Find;
+
+my $proj = $ENV{'SRV_HOME'};
+my $path_compliance = "$proj/riscv-compliance";
+my $path_compliance_src1 = "$proj/riscv-compliance/srcs_i";
+my $path_compliance_src2 = "$proj/riscv-compliance/srcs_zicsr";
+my $path_compliance_src3 = "$proj/riscv-compliance/srcs_fencei";
+my $path_compliance_src4 = "$proj/riscv-compliance/srcs_im";
+my $path_sim = "$proj/sim/compliance_test";
+my $run = "$proj/script/run";
+
+# clean
+system("cd $path_compliance && make clean");
+
+# get files
+my @srcs = ();
+
+opendir(DIR, $path_compliance_src1);
+while(my $src = readdir(DIR)){
+    push @srcs, $src;
+}
+closedir(DIR);
+
+opendir(DIR, $path_compliance_src2);
+while(my $src = readdir(DIR)){
+    push @srcs, $src;
+}
+closedir(DIR);
+
+opendir(DIR, $path_compliance_src3);
+while(my $src = readdir(DIR)){
+    push @srcs, $src;
+}
+closedir(DIR);
+
+opendir(DIR, $path_compliance_src4);
+while(my $src = readdir(DIR)){
+    push @srcs, $src;
+}
+closedir(DIR);
+
+# get testcase
+my @testcase = ();
+
+foreach $tc (@srcs) {
+    $tc = basename $tc;
+    if($tc =~ /(.*)\.S/g){
+        push @testcase, $1;
+    }
+}
+
+# check testcase
+print "Find these testcase:\n";
+foreach $tc (@testcase) {
+    print "Testcase: $tc\n";
+}
+
+# start to run
+my @testcase_scoreboard = ();
+foreach $tc (@testcase) {
+
+    # run a single testcase with nofsdb
+    system("cd $path_sim && make testcase=$tc");
+    system("cd $path_sim && $run -nofsdb");
+
+    # check pass or fail
+    if(-e "$path_sim/run/pass") {
+        print "Testcase($tc) PASS!\n";
+        push @testcase_scoreboard, 1;
+    } elsif(-e "$path_sim/run/fail") {
+        print "Testcase($tc) FAIL!\n";
+        push @testcase_scoreboard, 0;
+    } else {
+        print "Testcase($tc) ABORT!\n";
+        push @testcase_scoreboard, 2;
+    }
+}
+
+
+# report
+my $idx = 0;
+
+print "\n\n";
+print "REPORT RISCV-COMPLIANCE REGRESSION RESULT:\n";
+foreach $tc (@testcase){
+    my $result = $testcase_scoreboard[$idx];
+    my $result_str = ($result==0) ? "**FAIL**" : ($result==1) ? "PASS" : "**ABORT**";
+    my $report_str = "Testcase Name: $tc";
+    my $report_str_len = length($report_str);
+
+    # align & puts
+    $report_str = $report_str." "x(40-$report_str_len);
+    $report_str = $report_str." | $result_str\n";
+    print $report_str;
+    $idx+=1;
+}

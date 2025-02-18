@@ -1,0 +1,34 @@
+#!/usr/bin/perl
+
+use Getopt::Long;
+
+# Parse ARGV
+$wave = 1;
+
+GetOptions(
+    'wave!' => \$wave,
+);
+
+
+# Get Environment Variable
+$proj = $ENV{'SRV_HOME'};
+$pwd = $ENV{'PWD'};
+
+
+# Global Options
+$workpath = "$pwd/run";
+$flist = "$pwd/sim.f";
+$output = "vsim";
+$top = "tb_top";
+
+# Verdi Options
+$VERDI_OPT = "-sverilog -2009 -top $top +v2k ";
+if($wave == 1){
+    $VERDI_OPT .= "-ssf $output.fsdb -dbdir $output.daidir ";
+}else{
+    $VERDI_OPT .= " -f $flist ";   
+}
+
+print "VERDI: $VERDI_OPT\n";
+
+system("cd $workpath && verdi $VERDI_OPT &")

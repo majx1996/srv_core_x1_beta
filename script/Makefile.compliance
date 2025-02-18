@@ -1,0 +1,27 @@
+.PHONY: build
+
+testcase := I-CSRRW-01
+
+PWD				= $(shell pwd)
+PATH_COMPLIANCE	= $(proj)/riscv-compliance
+
+tc				= $(patsubst %.S, %, $(shell find $(PATH_COMPLIANCE) -name "$(testcase).S"))
+ref				= $(patsubst %.S, %, $(shell find $(PATH_COMPLIANCE) -name "$(testcase).reference_output"))
+
+build:
+	cd $(proj)/riscv-compliance && make -i && \
+	cp $(tc).elf.dump $(PWD)/code.dump && \
+	cp $(tc).elf.detail.trace.log $(PWD)/detail.trace.log && \
+	cp $(tc).elf.sample.trace.log $(PWD)/sample.trace.log && \
+	hexdump -ve '1/4 "%08x\n"' $(tc).elf.text.bin > $(PWD)/itcm.data && \
+	hexdump -ve '1/4 "%08x\n"' $(tc).elf.data.bin > $(PWD)/dtcm.data && \
+	cp $(ref) $(PWD)/dtcm.reference
+
+.PHONY: clean dbg
+
+clean:
+	cd $(proj)/riscv-compliance && make clean && \
+	cd $(PWD) && rm -rf run/ *.data *.dump *.reference *.log
+
+dbg:
+	@echo $(tc)

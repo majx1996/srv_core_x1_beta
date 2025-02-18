@@ -1,0 +1,22 @@
+export SRV_HOME=${PWD}
+
+export proj=${PWD}
+
+export dumpfsdb=${proj}/script/dumpfsdb.tcl
+
+export LS_COLORS+='*.v=01;33:*.sv=01;33:*.f=01;95:'
+
+#alias run="make run"
+
+#alias wave="make wave"
+
+alias run=${proj}/script/run
+
+alias run_compliance=${proj}/script/run_compliance
+
+alias wave=${proj}/script/wave
+
+echo "-------------------------------"
+echo "| Source setenv completely!"
+echo "| SRV_HOME: ${SRV_HOME}"
+echo "-------------------------------"
