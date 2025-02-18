@@ -1,12 +1,18 @@
-module srv_tiny_arb
+module srv_tiny_arb#(
+    parameter int N = 1
+)(
+    input  [N-1:0]      req         ,
+    output [N-1:0]      grant       ,
+    output              grant_any
+);
+
+
+
 `protected
-::,]G#(1QBK6ab98N[3D-4:<1/F2eA[[O,LPA-ORXRT;W[:?)R+[()6SU6)]UQ4/
-d2TcCJX>Fg.I<)>1=S(ScJ<A:aI.a4[gLZC@7<K)=.gK0BGY)e@e>X.)+4^]#1>G
-L]e;CX]]I#c1PWg([6&R4N#Q&20[S(Oee22=YB-Y8f>]gB^N14[(0KTS^2f?4D3b
-0<FTG2#g):T-F&Q@H_G8YG_JH>TN+5VE3R+-:=N]/BX0RCb2#>PD>gN95]d.a97M
-Q&=,b]N=^JQ_38N:?JP>4.QUL#@f20TU0JeFL1C,-X;:H-&QPBb7a]=XHL+d8Ib@
-8d0/@P3e=DY4>9XC2B,/7#g6EWgag;^g:\NBF-^/V>f6e@eW@3NWGe3_K_g\[BFI
->,::D7C4g8=LeEJ_M0ED[GTF+g7/-JTTT:IBXfEQ/e]1,L@d>VBeK3=0Iebg>;K\
-f5/2V&)V]Z3VJ5]XU79Wc>9AcOU#BeIIL\;H(ea/Y:QX@JQ1#(f>+^:GL=#H/]C/V$
+U.],-JI/JT;8df19YN[H&B,60[5@LBQVGe[7VVMOHSJC5Pee>(6Y1)M1YM4c;.Mf
+2-60QFa_FF=9&+U3SR_CDQc#G7PV[AY,]fB)28QT1b/_6@I4B)/0Xfe_<<-?[D#&
+-,e7?L.W[@bSZ5\QDL0B2@4+c.eM=7=SWe+gF9^-Q1eTQ1/BPadMb>7/Fb)8O4?]
+\^CQ,L;1LT_#85g3_dbOfMg6-54EMA;6TWF@G&+D>?1^[AVffCS/@;;TW+84\K=;
+aTF5D/]>+gYJ8BFF424A[dITIZQE-Bb&=GH&@CW]G3FIP]NMP7F]_b)E&IE0Ie<#U$
 `endprotected
 endmodule

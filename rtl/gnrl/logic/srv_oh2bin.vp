@@ -1,15 +1,19 @@
-module srv_oh2bin
+module srv_oh2bin#(
+    parameter int DW_IN  = 4, // data width
+    parameter int DW_OUT = ($clog2(DW_IN)==0) ? 1 : $clog2(DW_IN)
+)(
+    input  [DW_IN-1:0]  oh  ,
+    output [DW_OUT-1:0] bin
+);
+
+
 `protected
-L&=B4&D?^.<f(7:2S/?63R=e:<SITf@;f1B&bM(I54c85SFJ_HSI3)[F91c^V>K2
-.&TW\22&7D:86BAY(O4@0@GYDPBc185/G.&NXXCND&2O83e])LF/J2;)[@3Z2:7H
-JF--X-2d@R_==,?c^/-WG+S\B12Ofd7=5[+N-U;gPM13c@<],GaA#3C[V>g+@7)a
-OEgXD0O),c8(H2T-AHMSb>?_X@daP[fWB5?,8J3Vd(g@1f[IILEQd04PMC?B5,S/
-=;]MBd]20@Vc_(\ab(4&J,d).AO3426&f95.O-(9F>]NA;D\;Hc.[BU(1K3JXMX:
-f\1K<TT:XbE#.5AEPcc\\EJTYVSY\WBX/fTB\7P736LHH8aY,bg(,;]Z68@U):F6
-gMZ3DbHDU\7?G.U&)_YAKbVIMT@:cd,18TK]cgH^NR5/ESXCV[TOO=Z1S8]K/A&&
-04X)63[#Tf)YC)8&BdQRD.K.0+/,>LW&Ka#@=MV5Q3@aSa-<a<F,QN.3fEe6Z:D;
-D2/+-5NDY]HDDfNMBJDfO1>.]fQOPb>MWJM_+ATGc[.NQHMPTKS)<[\(Ze]+JAe9
-I4W)4P/\062B>[fXHQ4cag3DB7OOJK.8UGS4V58R3&1;27b7;COg#..Za>33Qf/#
-I]+>NAgWHH6B.$
+?:)([g)6\U65-K]S/[g-J3[MZ[cB2^3^Tc9fA[W4/#[dVZ(fg..21)8)?M+(5S6Z
+X.4F\a7Hc4V=[gE;RKRdP(QJR2^3&V/4G^K2>#bT)Wa8XO8XA<DD(ZRY>81YGOZS
+5<1Z]P=/FJZ;+L49.YOQS=9>[,]74<L?PZUNLMMf_,84A>-1Y[T_1@YZVNG@:VbF
+M:9EE[Q[RQX-26IKU-ZM?P1<##]UM&+^;BF3?Z6MAK;K4Q4I+E(=>[a._TA9]W?;
+E4U_];^ML/>Yfb@-KS;d8-)7fLMcK=&VDPDfbH.>L5M#EO6.-?H?:<+Y9&(aH?QC
++K,&-3(<_e;UP,WGFb@+MaeO;gQ]Gg5#Y?YaE#Q:9?1IXf_I2[H]MGL#Se6Z5&-A
+NS;b)W[+Z97b1&.0:Le2.^U.Y@GH#<(6<$
 `endprotected
 endmodule

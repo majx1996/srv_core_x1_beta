@@ -1,26 +1,38 @@
 module srv_rtu_redir_pc
+    import srv_constant::*;
+    
 `protected
-F4F0HMDfYCXBN](;A=@dD.\@gM<BF;CAXJe7-aWM:84GC-KCYT#,3)>U^HS.cCYa
-,)UNEJX1YCGYS(;?^HD_S^7+/<3MRgdg@O+H1FbS_1,TS9G[FK_Ng4,8@3.7fHJH
-@RXC._1LY=cN4eE6L0J=&;,/A3=]9F3EW><A0Ffb0XU#-3FJA5=3D#LAL:Se2YeA
-7=HJN\GW3&-PM6UNH6\3<.&5H[(TZJL7^c:7cIeC6b=6:U_<<>L&5_TV63gCOO;D
-J_0,?G7HKC1KOIef]_IYXS90S<\#Ua02E\&8aV)8eD1S7?8N97VcKZ=3IPFS=55S
-Sg(7#&0JK]NHc-]WOBba6)f<#af&W3=VSRO8#7W=JV;/g1^;f3(^@&+gH&fgP)1O
-EAaeJ8A]d@Q\AF11a[G3eI3C1;3\0?Y:RHI@eJ@MRL/KCN,&+GBCASV2.?8#:#F;
-56EZVA5I)@K_G8H=+c2@g7XC3P-_A2V[5C5HJ6;N9B[a,F(#cZ#5fA\YU0[@TX]#
-0FUOY+<.Mf[B,W^4:b06^ZaM+HKLM)TVJ?]ALGWX>,Lc)=/2TIJ)+]:/WCdNMUM?
-]SR/[_\&6R.Sa6-X.ZUPAAUA9f,:VLM/HH<Zg>.:Aa8RM+e?G1X)SK_2:&eKRVa)
-46e8aXd\WT@4-ZP>FYKdU@GG+;9IZ6cQ,->Kb43NR@N^C-XJc]bP?B0ETAPb:X?W
-gA0+L#HY#H>UU,Q424]IV+b3X9A#LY\]^QYY>C>0JLLM&PQSG<<8GDXgK&Q\70<Z
-FR/0>L;OG,N:O+]7JS7XN.J(/F6WJY5,FFSZ&2Obgde&A@.5X\aX=)aIE,Qf+&DZ
-;:4R(S5L(a+c_]16D^A=+RCa_6FWFL,&BR.-@^KeeEE2LCJ?N3BQIW)069WL6N<Q
-P3\9aQbc_SbcKgaX4X#)7]E1<)NB.7b0<8,d>_Ib/9C1/bf;#WYL7HdM?g^OZZ<J
-V<bT8^P#AGCQPgX?=6cdQ[^c4-&[]gXf3NOVb79b5>B,R=PC6Q>1f9>Ed?EXd>+d
-)USM2=Q=dR-6JX\NNB^1;FeVHD0f+;U(20^<<Pc\Fa8R[,;X2b;;N463Ab98Rc?:
-T:,A0Kg4?6#KKW.4_W^8aW>7F1J0G:OW3-FTMJ;bOCRP8><\Cd+MdZEVHL87\LGP
-fBdAV-gQeONF(,-bR4N,7GM^+P[R9bR^WDO\&V-W0P>e;B4USAECOR_J&X[PNW/e
-IHFbY__bI<\+De=RQ);0N8WVC</6DWK-UF+B@:20ObDcX6O<?X:6T4YI[B@2O+M3
-gaA?;8SW)/RCC0bZYZUT1?71Z<,\9&?cJ-5a_b2](.<A:Jc\d>VL\a<PEbgdGH<O
-Q/HVe=BHI_WC.$
+:O^<D7Y5R2#eF:N-[d<^=PfHOI):3&7@00V7^U2KB&BFA8/)-52J+)M7cNIJ;E1G
+UZ&]eM4FAG_(a]ZL_,#^[21QC;#-YYGUP[CcOMY/NH=FG$
+`endprotected
+output [31:0]       redir_pc        ,
+
+    input  [1:0]        mtvec_mode      ,
+    input  [29:0]       mtvec_base      ,
+
+    input  [31:0]       cur_pc          ,
+
+    input               fencei          ,
+    input               error           ,
+    input               ecall           ,
+    input               ebreak
+);
+
+
+
+`protected
+A/C43G0LcF3DB]GM.AH[+.NgUL2:I4U_@C;@TeWHRDR)G9,>?&,b))@,BTWL3G]2
+4U,c)aAVf5)Q]2.KR:UUW6;F/>1Z-f76.5D9,\Z=3VQHdg+9@[_g#DE?B2&TFM.+
+4NfTSL@+I.4+-GacXELFG):A16T\)T?,,N4O_1;GP5-.3O<&.bZTR;BO;<]7gVUB
++S#d^VWOO\L4=L)IZO]4LA#@2PM(dB:.K1_><;TNX(>G(5JR;gULP_@+a1_O7cH@
+WbIc0;M;,8XL2gRd4&I?T4If.(AL2L?9)H#)6W)@[2,,^N.)&E>E,Mc]g9);O\0N
+@_55)PA:>IT+.YEe=LXVGcRGU#,[)/_\2?3/,2RgfWF\6+(/fO@);L0[/A,:=IT-
+>FNf@0g--dO:\M&S8AN9+FV?gc/;L&3AE]WN7[e:/]/^GQFNaC03]H/X1gTT\QAe
+[+LM-W(,16L01[0MV)L83JFd)Ia>8CXB[18NM(5MVQ,<abeP>H/0#1@NXK+b[FLY
+ca1)3->DM.141Zf=#SfS1UT@H]e;?)cc)9&6a9.>[E\faXa=B\73b[R:D###K+.a
+&eV__2AJ-6(ZFgPAE6;;?79QNE]F7+[R((W380\10#f[c#7>d<LdH2,+<+@^054;
+]6aDL?bdV/?cS0N&OSIJ1g9NC5]4S.3@e@Da9EGB\e(9D.](F(@Q\4P>7aJ)Vgg?
+)1Z6N^[YLQ7WLe;)V(\d_37[I7c^3gc[<>b,;aH:M/GU4a66d##XLGbGRR9>+CW\
+_,+aAJO8DCNW\)Q3+@40??FQL8acKg(JA,U&TaQeHW,UBeYR;7UC@\,-G<X.>,?#U$
 `endprotected
 endmodule

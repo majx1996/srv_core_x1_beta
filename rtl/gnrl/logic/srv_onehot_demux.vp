@@ -1,19 +1,24 @@
-module srv_onehot_demux
+module srv_onehot_demux #(
+    parameter bit G = 1, // gating. 0: just wire replication. 1: gating off connection not selected
+    parameter int N = 1,
+    parameter type T = logic [N-1:0]
+)(
+    input  T        i       ,
+    input [N-1:0]   s       ,
+    output T        o   [N]
+);
+
+
 `protected
-ac2:CAMf+fTOC1KOaRVMe)LHd^N-B,M_5JVZ3@-<IJWLAHJ]9V?3-)EGTY/63?0Z
-9[Oe.N/U]_ICHW@Jaffe8U[013+_5fbUHPP=2TE1&J)SMWXSZNGU958MH.T)g4@>
-6IJ(FE6U.U5UVcc.#U(/eJ+<[R,-9cD:G[-);UQ0S##Z_f=XKTHGW<]E8bZ>V>R=
-WX;ZRD-^FVVU1W=N<XP8CK@bR<a;H-,^V,aP<LBN6HR5\[S5),&=Y#./[dZD7C@2
-UWWd.=UCc?KfV^;dA_FSg:,1]Q]_^F]ZB>ZJ7]4bW78X\SEFC]ISC\MWSEL;.b5g
-^G>@LG.:<LS#,5@U_A0aBd6HV#EQ>bL/</+/D7D02;H3N/e]fLZFMFB\_6T.?JW6
-O#YS=IfJL60IfG^cd+,3N3]Q:b4G[-X3-WS354_=LCS=I7gO^3F@I11BgW(#C^c,
-.a:[=EcCPOQHF<;2YC&)Q4LQf]0S^a/6B2?IBL@_P)TBF)5[+a.:5&2G+?RH>[KL
-IS.,gJe9YeS[W&XCC0B(cC,CIV7c#26,7+_N?7K/(Y?(Y=TMgJ?[B,g]1]d#fBSC
-HF>fK:>4Jb5f&10c]X,cH;]6)93.?b]\,N8/DC_HYQ:J<F&3fGA/VMa9/^e\D=S#
-VH(?g<ITaceO>/UV/J<3@(E&R:3CT000J^HO<,U3D[&=7N5&gEIC/BgQ#&8WZ<Y,
-PIUdB7FEcNQ7OPOK48U#^YZ1^OIYV09]O<;NIFGJ57SI,C[A_9e+LUVCLA:6?<g@
-e^A&b9=Z(/BOXgCT=#(C1Q?E+1GM-POB997^&E?2]FE&eS5G@V3gcZG=KPP+:&J1
-de\bObQ31OP:eJ[B\6A-eQ_WcD(ba<NZT.1G4Q<g+J43T+SCF6DQJ74XWY.<8e7e
-RHf(9;_#9#Q@92C9I=D_4\)A\PSAK,]d@$
+4e<=-XL8dQK0BDL^.PC[F7X)M)GV=5BeK6g(\5Q6?(V-Z([eKKL.&)AB_G)]Q:8N
+N89-,=3->L,SK;.]df-A+T1fP)]?e74];]0B)AT)#HS=0;#8#Vb\[@C&BFNLSUgd
+I:E8R6b@)PZX,N9@7FHYX)PeeYTO)/5a-#FG5.0g,Od^65R?CF=75<3]J)]H@50F
+4Rbg0VFGLH^S/F1Ne_L#]eNF7+dJE^B(FL7KTCA-H70LFb@+#HV;f8/N9aDcEXdP
+Q</]08>KU<.ICOA8W^5NN>b]9A9SdX0AG/H@ObA+A-C8a@B0+;@(_9UWb31.WWC0
+d4<W[6H/JfMT40>=3:W2Q\(f(dWXRXefJ?c^Rd3QF,gK]9(]F:5RJ<-2=e-&X(,I
+D3+<#_9@WK8cC/]12<(#)eWYS]XGL_9+9R984_OMA6,B?f\W\5cS[\a5.1M4QK]b
+09Vd&[()M=7Hc)?_B+L#]c0_\b?+//-)R<O\TT(T9bLRPXGAD#,b[X9)7Qf@;TPe
+agN4:g]BA<9MDfEHVT?XaBC=YH]Wc]XA>C)WF;3H44=W\V]BB-Ea+W<IO.8NS]Qc
+Q6K[GJE9aMRM+$
 `endprotected
 endmodule
