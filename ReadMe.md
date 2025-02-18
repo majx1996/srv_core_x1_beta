@@ -2,6 +2,8 @@
 
 Github: [https://github.com/majx1996/srv_core_x1_beta.git](https://github.com/majx1996/srv_core_x1_beta.git)
 
+**注：该仓库并非项目主仓库，仅用于展示**
+
 ![SRV_CORE](doc/srv_core.png)
 
 ## 特性
