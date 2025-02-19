@@ -17,6 +17,12 @@ Github: [https://github.com/majx1996/srv_core_x1_beta.git](https://github.com/ma
 * Store 请求和 IO 访存请求一旦从总线发出，对应指令不会被冲刷掉
 * 暂不支持中断
 
+## 代码风格
+
+- 完全采用可综合的 SystemVerilog 语法，支持 FPGA 综合
+- 灵活的参数化：包括各级时序参数、buffer 深度、总线 outstanding 能力、ROB 项数、物理寄存器个数、各区域地址段等
+- 模块间通过 valid & ready 握手实现数据传输，最大化解耦
+
 ## 文件介绍
 1. doc：ReadMe 图片
 2. riscv-compliance：RISC-V 一致性测试用例，包含汇编源代码和用于最终比对的参考数据
@@ -109,3 +115,15 @@ run_compliance
 仿真截图(指令退休)：
 
 ![指令退休](doc/retire.png)
+
+## FPGA 综合
+
+时钟约束 71.429MHz，input/output delay 为 0.4*14ns，暂时没有采用 Block Memory 构建存储器，还有提升空间
+
+![FPGA Clock](doc/fpga_clock.png)
+
+![FPGA Timing](doc/fpga_timing.png)
+
+![FPGA Area1](doc/fpga_area_summary.png)
+
+![FPGA Area2](doc/fpga_area_detail.png)
