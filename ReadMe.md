@@ -15,7 +15,6 @@ Github: [https://github.com/majx1996/srv_core_x1_beta.git](https://github.com/ma
 * 保守的乱序访存策略：读写之间顺序、写之间顺序、读之间乱序
 * 支持 IO 访存和 Normal Memory 访存，IO 访存强制顺序
 * Store 请求和 IO 访存请求一旦从总线发出，对应指令不会被冲刷掉
-* 暂不支持中断
 
 ## 代码风格
 
