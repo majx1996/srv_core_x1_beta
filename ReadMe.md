@@ -51,7 +51,7 @@ Github: [https://github.com/majx1996/srv_core_x1_beta.git](https://github.com/ma
 
 | 用例                 | 说明                                                         |
 | -------------------- | ------------------------------------------------------------ |
-| I-MISALIGN_JMP-01.S  | srv_core_x1 不支持非对齐取值                                 |
+| I-MISALIGN_JMP-01.S  | srv_core_x1 不支持非对齐取指                                 |
 | I-MISALIGN_LDST-01.S | 该用例期望 CPU 发起非对齐地址访存后能上报异常，srv_core_x1 支持非对齐访存，不需要上报异常 |
 
 ## 运行仿真
